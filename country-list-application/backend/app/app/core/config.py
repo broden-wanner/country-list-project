@@ -1,5 +1,5 @@
 import secrets
-from typing import List
+from typing import List, Dict, Any
 
 from pydantic import AnyHttpUrl, BaseSettings, BaseModel, EmailStr
 from pydantic.tools import parse_obj_as
@@ -18,6 +18,30 @@ class Settings(BaseSettings):
     SECRET_KEY: str = secrets.token_urlsafe(32)
 
     BACKEND_CORS_ORIGINS: List[str] = ["*"]
+
+    # Logging
+    LOGGING_CONFIG: Dict[str, Any] = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "detailed": {
+                "class": "logging.Formatter",
+                "format": "[%(asctime)s] %(levelname)s %(name)-15s: %(message)s",
+            }
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "detailed",
+                "level": "DEBUG",
+            },
+        },
+        "loggers": {
+            "app.main": {"handlers": ["console"]},
+            "app.api.api_v1.endpoints.upload": {"handlers": ["console"]},
+            "app.calendar.html_parser": {"handlers": ["console"]},
+        },
+    }
     
 
     class Config:

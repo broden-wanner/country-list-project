@@ -1,38 +1,20 @@
 from typing import Any
-
 from fastapi import APIRouter
+from app.schemas import CountryListSchema
+from app.graph.enums import CountryCode
+from app.graph.topology import shortest_path_between_countries
 
-import networkx as nx
 
 router = APIRouter()
 
-
-@router.get("/{country_code}")
-async def get_country_list(country_code: str) -> Any:
-    edge_list = [
-        ("CAN", "USA"),
-        ("USA", "CAN"),
-        ("USA", "MEX"),
-        ("MEX", "USA"),
-        ("MEX", "GTM"),
-        ("MEX", "BLZ"),
-        ("BLZ", "MEX"),
-        ("BLZ", "GTM"),
-        ("GTM", "MEX"),
-        ("GTM", "BLZ"),
-        ("GTM", "SLV"),
-        ("GTM", "HND"),
-        ("SLV", "GTM"),
-        ("SLV", "HND"),
-        ("HND", "GTM"),
-        ("HND", "SLV"),
-        ("HND", "NIC"),
-        ("NIC", "HND"),
-        ("NIC", "CRI"),
-        ("CRI", "NIC"),
-        ("CRI", "PAN"),
-        ("PAN", "CRI"),
-    ]
-    G = nx.Graph(edge_list)
-    path = nx.shortest_path(G, source="USA", target=country_code)
-    return {'detail': path}
+@router.get("/{destination_country_code}", response_model=CountryListSchema)
+async def get_country_list(destination_country_code: CountryCode) -> Any:
+    """Returns the path to travel from the USA to the given country code.
+    Uses the country graph to find the shortest path between USA and the 
+    country code passed in as a path parameter.
+    """
+    path = shortest_path_between_countries(source=CountryCode.USA, target=destination_country_code)
+    return {
+        'destination': destination_country_code, 
+        'list': path
+    }
