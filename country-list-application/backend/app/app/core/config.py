@@ -1,13 +1,15 @@
 import secrets
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
-from pydantic import AnyHttpUrl, BaseSettings, BaseModel, EmailStr
+from pydantic import AnyHttpUrl, BaseModel, BaseSettings, EmailStr
 from pydantic.tools import parse_obj_as
+
 
 class Contact(BaseModel):
     url: AnyHttpUrl = parse_obj_as(AnyHttpUrl, "https://brodenwanner.com")
     name: str = "Broden Wanner"
     email: EmailStr = parse_obj_as(EmailStr, "brodenwanner@gmail.com")
+
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Country List Project"
@@ -42,12 +44,11 @@ class Settings(BaseSettings):
             "app.calendar.html_parser": {"handlers": ["console"]},
         },
     }
-    
 
     class Config:
         case_sensitive = True
-        env_file = '.env'
-        env_file_encoding = 'utf-8'
+        env_file = ".env"
+        env_file_encoding = "utf-8"
 
 
 settings = Settings()

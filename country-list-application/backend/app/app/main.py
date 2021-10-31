@@ -11,7 +11,7 @@ dictConfig(settings.LOGGING_CONFIG)
 
 # Initialize the FastAPI app
 app = FastAPI(
-    title=settings.PROJECT_NAME, 
+    title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
     version=settings.VERSION,
     contact={

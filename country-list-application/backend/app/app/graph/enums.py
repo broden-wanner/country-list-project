@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class CountryCode(str, Enum):
     CAN = "CAN"
     USA = "USA"

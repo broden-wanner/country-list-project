@@ -1,8 +1,12 @@
 import networkx
-from .enums import CountryCode
-from .country_graph import country_graph
 
-def shortest_path_between_countries(source: CountryCode, target: CountryCode) -> list[CountryCode]:
+from .country_graph import country_graph
+from .enums import CountryCode
+
+
+def shortest_path_between_countries(
+    source: CountryCode, target: CountryCode
+) -> list[CountryCode]:
     """Finds the shortest path between two countries using the country graph and
     Dijkstra's algorithm.
 
@@ -14,5 +18,7 @@ def shortest_path_between_countries(source: CountryCode, target: CountryCode) ->
         The shortest path of countries to travel through in order to go from the
         source to the target country.
     """
-    path = networkx.shortest_path(country_graph, source=source, target=target, method='dijkstra')
+    path = networkx.shortest_path(
+        country_graph, source=source, target=target, method="dijkstra"
+    )
     return path

@@ -1,10 +1,12 @@
 import networkx
+
 from .enums import CountryCode
+
 
 def initialize_country_graph() -> networkx.Graph:
     """Initializes the simplified country graph.
 
-    Creates a networkx graph from an edge list determined by the 
+    Creates a networkx graph from an edge list determined by the
     simplified North America map given in the problem. Each vertex
     in the graph is an instance of the `CountryCode` enum.
 
@@ -37,5 +39,6 @@ def initialize_country_graph() -> networkx.Graph:
         (CountryCode.PAN, CountryCode.CRI),
     ]
     return networkx.Graph(edge_list)
+
 
 country_graph = initialize_country_graph()
