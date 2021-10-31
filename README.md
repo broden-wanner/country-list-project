@@ -17,4 +17,4 @@ use a simplified map of North America:
 - CRI - Costa Rica borders Nicaragua and Panama 
 - PAN - Panama borders Costa Rica
 
-![Simplified North America](/docs/img/simplified-north-america-map.png)
+<img alt="Simplified North America" src="/docs/img/simplified-north-america-map.png" width="25%">
