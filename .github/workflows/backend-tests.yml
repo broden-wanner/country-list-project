@@ -1,6 +1,6 @@
 name: Backend Tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -28,4 +28,5 @@ jobs:
       - name: Upload coverage
         uses: codecov/codecov-action@v2
         with:
+          files: ./country-list-application/backend/app/.coverage
           fail_ci_if_error: true
