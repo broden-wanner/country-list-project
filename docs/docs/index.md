@@ -9,7 +9,7 @@
 
 **API Docs**: [https://countrylist.brodenwanner.com/redoc](https://countrylist.brodenwanner.com/redoc)
 
-**Documentation**: [https://countrylist.brodenwanner.com/docs](https://countrylist.brodenwanner.com/docs)
+**Documentation**: [https://countrylist.brodenwanner.com/dev/docs/](https://countrylist.brodenwanner.com/dev/docs/)
 
 ---
 

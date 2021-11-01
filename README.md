@@ -3,6 +3,16 @@
 [![Backend Tests](https://github.com/broden-wanner/country-list-project/actions/workflows/backend-tests.yml/badge.svg)](https://github.com/broden-wanner/country-list-project/actions/workflows/backend-tests.yml)
 [![codecov](https://codecov.io/gh/broden-wanner/country-list-project/branch/main/graph/badge.svg?token=QedVU7QwJb)](https://codecov.io/gh/broden-wanner/country-list-project)
 
+---
+
+**API Root**: [https://countrylist.brodenwanner.com](https://countrylist.brodenwanner.com)
+
+**API Docs**: [https://countrylist.brodenwanner.com/redoc](https://countrylist.brodenwanner.com/redoc)
+
+**Documentation**: [https://countrylist.brodenwanner.com/dev/docs/](https://countrylist.brodenwanner.com/dev/docs/)
+
+---
+
 This project is an application that receives a three-letter code for a North American Country and returns a list of 
 all countries a driver must travel through to go from the United State of America to the destination. We 
 use a simplified map of North America:
